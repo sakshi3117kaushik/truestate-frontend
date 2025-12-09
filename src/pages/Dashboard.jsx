@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import qs from "qs";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5000";
+const API_BASE = import.meta.env.VITE_API_BASE || "https://truestate-backend-386l.onrender.com/";
 const API_ENDPOINT = `${API_BASE}/api/sales`;
 
 function useDebounce(value, delay = 400) {

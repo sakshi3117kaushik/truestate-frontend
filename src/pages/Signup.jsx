@@ -32,7 +32,7 @@ export default function Signup() {
     }
 
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/signup", form);
+      const res = await axios.post("https://truestate-backend-386l.onrender.com/api/auth/signup", form);
       alert(res.data.message || "Signup Successful");
       navigate("/dashboard");
     } catch (err) {
