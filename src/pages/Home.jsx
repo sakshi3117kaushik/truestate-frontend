@@ -10,7 +10,8 @@ export default function HomePage() {
 
       {/* Subtitle */}
       <p className="text-gray-300 text-lg md:text-xl text-center mb-10 max-w-xl">
-        Track sales, customers, revenue and optimize store performance in real-time.
+        Track sales, customers, revenue and optimize store performance in
+        real-time.
       </p>
 
       {/* Buttons */}
@@ -32,7 +33,8 @@ export default function HomePage() {
 
       {/* Footer Info */}
       <p className="text-gray-500 text-sm mt-12">
-        © {new Date().getFullYear()} Retail Analytics Pvt. Ltd. All rights reserved.
+        © {new Date().getFullYear()} Retail Analytics Pvt. Ltd. All rights
+        reserved.
       </p>
     </div>
   );
