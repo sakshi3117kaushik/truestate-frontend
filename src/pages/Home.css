@@ -1,0 +1,76 @@
+.home-container {
+  min-height: 100vh;
+  background-color: #1f2937; /* gray-900 */
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.home-title {
+  font-size: 2.5rem; /* ~4xl */
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .home-title {
+    font-size: 3rem; /* ~5xl */
+  }
+}
+
+.home-subtitle {
+  color: #d1d5db; /* gray-300 */
+  font-size: 1.125rem; /* ~lg */
+  max-width: 36rem; /* ~xl max width */
+  margin-bottom: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .home-subtitle {
+    font-size: 1.25rem; /* ~xl */
+  }
+}
+
+.home-buttons {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-blue {
+  background-color: #2563eb; /* blue-600 */
+}
+
+.btn-blue:hover {
+  background-color: #1d4ed8; /* blue-700 */
+}
+
+.btn-green {
+  background-color: #16a34a; /* green-600 */
+}
+
+.btn-green:hover {
+  background-color: #15803d; /* green-700 */
+}
+
+.home-footer {
+  color: #6b7280; /* gray-500 */
+  font-size: 0.875rem; /* ~sm */
+  margin-top: 3rem;
+}
