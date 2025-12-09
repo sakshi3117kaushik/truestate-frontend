@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./Signup.css";
 
 export default function Signup() {
   const [form, setForm] = useState({
@@ -24,7 +25,6 @@ export default function Signup() {
   const submitSignup = async (e) => {
     e.preventDefault();
 
-    // Simple frontend check for required fields
     const { customerId, name, email, password, phoneNo, gender, age, customerRegion } = form;
     if (!customerId || !name || !email || !password || !phoneNo || !gender || !age || !customerRegion) {
       alert("Please fill all required fields");
@@ -32,7 +32,10 @@ export default function Signup() {
     }
 
     try {
-      const res = await axios.post("https://truestate-backend-386l.onrender.com/api/auth/signup", form);
+      const res = await axios.post(
+        "https://truestate-backend-386l.onrender.com/api/auth/signup",
+        form
+      );
       alert(res.data.message || "Signup Successful");
       navigate("/dashboard");
     } catch (err) {
@@ -41,111 +44,38 @@ export default function Signup() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center px-4">
-      <div className="bg-gray-800 w-full max-w-md p-8 rounded-xl shadow-xl border border-gray-700">
-        <h2 className="text-3xl font-bold text-white text-center mb-6">Create Account</h2>
+    <div className="signup-container">
+      <div className="signup-card">
+        <h2 className="signup-title">Create Account</h2>
 
-        <form className="space-y-4" onSubmit={submitSignup}>
-          <input
-            name="customerId"
-            placeholder="Customer ID"
-            value={form.customerId}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:outline-none text-white placeholder-gray-400"
-          />
-          <input
-            name="name"
-            placeholder="Full Name"
-            value={form.name}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:outline-none text-white placeholder-gray-400"
-          />
-          <input
-            name="email"
-            type="email"
-            placeholder="Email"
-            value={form.email}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:outline-none text-white placeholder-gray-400"
-          />
-          <input
-            name="password"
-            type="password"
-            placeholder="Password"
-            value={form.password}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:outline-none text-white placeholder-gray-400"
-          />
-          <input
-            name="phoneNo"
-            placeholder="Phone Number"
-            value={form.phoneNo}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:outline-none text-white placeholder-gray-400"
-          />
+        <form className="signup-form" onSubmit={submitSignup}>
+          <input name="customerId" placeholder="Customer ID" value={form.customerId} onChange={handleChange} required className="input-field"/>
+          <input name="name" placeholder="Full Name" value={form.name} onChange={handleChange} required className="input-field"/>
+          <input name="email" type="email" placeholder="Email" value={form.email} onChange={handleChange} required className="input-field"/>
+          <input name="password" type="password" placeholder="Password" value={form.password} onChange={handleChange} required className="input-field"/>
+          <input name="phoneNo" placeholder="Phone Number" value={form.phoneNo} onChange={handleChange} required className="input-field"/>
 
-          {/* Gender select */}
-          <select
-            name="gender"
-            value={form.gender}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:outline-none text-white"
-          >
+          <select name="gender" value={form.gender} onChange={handleChange} required className="input-field">
             <option value="">Select Gender</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
             <option value="Other">Other</option>
           </select>
 
-          <input
-            name="age"
-            type="number"
-            placeholder="Age"
-            value={form.age}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:outline-none text-white placeholder-gray-400"
-          />
-          <input
-            name="customerRegion"
-            placeholder="Customer Region"
-            value={form.customerRegion}
-            onChange={handleChange}
-            required
-            className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:outline-none text-white placeholder-gray-400"
-          />
+          <input name="age" type="number" placeholder="Age" value={form.age} onChange={handleChange} required className="input-field"/>
+          <input name="customerRegion" placeholder="Customer Region" value={form.customerRegion} onChange={handleChange} required className="input-field"/>
 
-          {/* Customer Type */}
-          <select
-            name="customerType"
-            value={form.customerType}
-            onChange={handleChange}
-            className="w-full px-4 py-2 rounded-lg bg-gray-700 border border-gray-600 focus:border-blue-500 focus:outline-none text-white"
-          >
+          <select name="customerType" value={form.customerType} onChange={handleChange} className="input-field">
             <option value="New">New</option>
             <option value="Returning">Returning</option>
             <option value="Loyal">Loyal</option>
           </select>
 
-          <button
-            type="submit"
-            className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg transition-all duration-200"
-          >
-            Signup
-          </button>
+          <button type="submit" className="btn-submit">Signup</button>
         </form>
 
-        <p className="text-gray-400 text-sm text-center mt-6">
-          Already have an account?{" "}
-          <a href="/login" className="text-blue-400 hover:underline">
-            Login
-          </a>
+        <p className="signup-footer">
+          Already have an account? <a href="/login" className="login-link">Login</a>
         </p>
       </div>
     </div>
